@@ -1,0 +1,33 @@
+Regular Expressions
+
+MEtaCharacter (need to be escaped)
+.[{()\^$|?*+
+
+.       - Any character except new line
+\d      - Any Digit (0-9)
+\D      - Any Not a digit (0-9)
+\w      - Any Word character (a-z, A-Z, 0-9, ...)
+\W      - Any Not word character
+\s      - Whitespace (space, tab, newline)
+\S      - Not Whitespace (space, tab, newline)
+
+\b      - Word Boundary
+\B      - Not a Word Boundary-->Limite
+^       - Beginnig of a String
+$       - End of a String
+
+[]      - Matches character in brackets
+[^]     - Matches character NOT brackets
+|       - Either Or
+()      - Group
+
+Quantifiers:
+*       - 0 or More
++       - 1 or More
+?       - 0 or One
+{3}     - Exast Number
+{3,4}   - Range of Number (Minimun, Maximum)
+
+#### Sample Regex ####
+
+
