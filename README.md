@@ -9,9 +9,6 @@
 - 📫 How to reach me: +353 083 419 1605 (Dublin/Irlanda)
 - 😄 Pronouns: Power of will
 
-
-> ### We are going to see some exemples that i'll develop.
-
 > ### My first prject in python:
 1. **Translate number in word**:
   Goals: The main ideia this project is in the future i will create a API.
