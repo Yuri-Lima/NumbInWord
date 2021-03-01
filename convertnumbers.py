@@ -1,5 +1,5 @@
 import re
-from NumbInWord.Locate import unit_EN
+from Locate import unit_EN
 
 
 class Convert_numbers_english:
@@ -111,7 +111,7 @@ class Convert_numbers_english:
         index = None
         for index, k in enumerate(self.place.keys(), start=1):
             if index == self._decimal + 1:
-                print('index: {} number_typed: {}'.format(index, self._decimal))
+                # print('index: {} number_typed: {}'.format(index, self._decimal))
                 break
             else:
                 self.place[k] = int(self.number_typed[-index])#ele vai alimentando PLACE de traz para frente place[k] <-- 6 <-- int(num[-index])
@@ -149,55 +149,55 @@ class Convert_numbers_english:
     def concatanation_number_in_word(self):
         #  Trillions #9.000.000.000.000
         if self.validates['flag_trillion'] and self.place['trillions'] != 0:
-            self.joins.append((str(unit_EN[self.place['trillions']] + ' ' + 'Trillion')))#Teste de 9.000.000.000.000
+            self.joins.append(' ' + (str(unit_EN[self.place['trillions']] + ' ' + 'Trillion')))#Teste de 9.000.000.000.000
             #I will block the next condition(block the flag_hundred_billion)
             self.validates['flag_hundred_billion'] = self.check_zeros()
         # ====================================================================================================
         #  Hundred_billions #999.999.999.999
         if self.validates['flag_hundred_billion'] and self.place['hundred_billions'] != 0:
-            self.joins.append((str(unit_EN[self.place['hundred_billions']] + ' ' + 'Hundred')))
+            self.joins.append(' ' + (str(unit_EN[self.place['hundred_billions']] + ' ' + 'Hundred')))
 
             if self.tens_billions_part <= 20:
-                self.joins.append((str(unit_EN[self.tens_billions_part] + ' ' + 'Billion')))
+                self.joins.append(' ' + (str(unit_EN[self.tens_billions_part] + ' ' + 'Billion')))
 
             if self.tens_billions_part >= 21:
-                self.joins.append((self.find_position_in_place(self.tens_billions_part) + ' ' + 'Billion'))
+                self.joins.append(' ' + (self.find_position_in_place(self.tens_billions_part) + ' ' + 'Billion'))
         # ====================================================================================================
         #  Ten_billions #99.999.999.999
         if self.validates['flag_ten_billion'] and self.place['ten_billions'] != 0:
             if self.tens_billions_part <= 20:
-                self.joins.append((str(unit_EN[self.tens_billions_part] + ' ' + 'Billion')))
+                self.joins.append(' ' + (str(unit_EN[self.tens_billions_part] + ' ' + 'Billion')))
             if self.tens_billions_part >= 21:
-                self.joins.append(self.find_position_in_place(self.tens_billions_part) + ' ' + 'Billion')
+                self.joins.append(' ' + self.find_position_in_place(self.tens_billions_part) + ' ' + 'Billion')
         # ====================================================================================================
         #  Billions #9.999.999.999
         if self.validates['flag_billion'] and self.place['billions'] != 0:
-            self.joins.append((str(unit_EN[self.place['billions']] + ' ' + 'Billion')))
+            self.joins.append(' ' + (str(unit_EN[self.place['billions']] + ' ' + 'Billion')))
             #I will block the next condition(block the flag_hundred_billion)
             self.validates['flag_hundred_million'] = self.check_zeros()
         # ====================================================================================================
         #  Hundred_millions #999.999.999
         if self.validates['flag_hundred_million'] and self.place['hundred_millions'] != 0:
             if self.place['hundred_millions'] != 0:
-                self.joins.append((str(unit_EN[self.place['hundred_millions']] + ' ' + 'Hundred')))
+                self.joins.append(' ' + (str(unit_EN[self.place['hundred_millions']] + ' ' + 'Hundred')))
 
             if self.tens_millions_part <= 20:#9_'99'.999.999
-                self.joins.append((str(unit_EN[self.tens_millions_part] + ' ' + 'Million')))
+                self.joins.append(' ' + (str(unit_EN[self.tens_millions_part] + ' ' + 'Million')))
 
             if self.tens_millions_part >= 21:#9_'99'.999.999
-                self.joins.append((self.find_position_in_place(self.tens_millions_part) + ' ' + 'Million'))
+                self.joins.append(' ' + (self.find_position_in_place(self.tens_millions_part) + ' ' + 'Million'))
         # ====================================================================================================
         #  Ten_millions #99.999.999
         if self.validates['flag_ten_million'] and self.place['ten_millions'] != 0:
             if self.tens_millions_part <= 20:#9_'9.9'99.999
-                self.joins.append((str(unit_EN[self.tens_millions_part] + ' ' + 'Million')))
+                self.joins.append(' ' + (str(unit_EN[self.tens_millions_part] + ' ' + 'Million')))
 
             if self.tens_millions_part >= 21:
-                self.joins.append((self.find_position_in_place(self.tens_millions_part) + ' ' + 'Million'))
+                self.joins.append(' ' + (self.find_position_in_place(self.tens_millions_part) + ' ' + 'Million'))
         # ==================================================================================================== 
         #  Millions #9.999.999
         if self.validates['flag_million'] and self.place['millions'] != 0:
-            self.joins.append((str(unit_EN[self.place['millions']] + ' ' + 'Million')))
+            self.joins.append(' ' + (str(unit_EN[self.place['millions']] + ' ' + 'Million')))
 
             #It means that the number after the first one are zeros
             #I will block the next condition(block the flag_hundred_billion)
@@ -206,28 +206,28 @@ class Convert_numbers_english:
         #  Hundreds_thousands #999.999
         if self.validates['flag_hundred_thousand'] and self.place['hundred_thousands'] != 0:
             #hundreds_part = int((hundred_thousands / 100) % 10)#999
-            if self.place['hundreds'] != 0:
-                self.joins.append((str(unit_EN[self.place['hundred_thousands']] + ' ' + 'Hundred')))
+            if self.place['hundred_thousands'] != 0:
+                self.joins.append(' ' + (str(unit_EN[self.place['hundred_thousands']] + ' ' + 'Hundred')))
 
             #decimal_hundred_thousands_part = int((hundred_thousands % 100))
             if self.tens_thousands_part <= 20:
-                self.joins.append((str(unit_EN[self.tens_thousands_part] + ' ' + 'Thousand')))
+                self.joins.append(' ' + (str(unit_EN[self.tens_thousands_part] + ' ' + 'Thousand')))
     
             if self.tens_thousands_part >= 21:
-                self.joins.append((self.find_position_in_place(self.tens_thousands_part) + ' ' + unit_EN[unit_EN.index('Thousand')]))
+                self.joins.append(' ' + (self.find_position_in_place(self.tens_thousands_part) + ' ' + unit_EN[unit_EN.index('Thousand')]))
         # ====================================================================================================
         #  Ten_thousands #99.999
         if self.validates['flag_ten_thousand'] and self.place['ten_thousands'] != 0:
             if self.tens_thousands_part <= 20:
-                self.joins.append((str(unit_EN[self.tens_thousands_part] + ' ' + 'Thousand')))
+                self.joins.append(' ' + (str(unit_EN[self.tens_thousands_part] + ' ' + 'Thousand')))
 
             if self.tens_thousands_part >= 21:
-                self.joins.append((self.find_position_in_place(self.tens_thousands_part) + ' ' + 'Thousand'))
+                self.joins.append(' ' + (self.find_position_in_place(self.tens_thousands_part) + ' ' + 'Thousand'))
         # ====================================================================================================
         #  Thousands #9.999
         if self.validates['flag_thousand'] and self.place['thousands'] != 0:
             #isso e uma possibilidade de troca de idioma
-            self.joins.append((str(unit_EN[self.place['thousands']] + ' ' + 'Thousand')))
+            self.joins.append(' ' + (str(unit_EN[self.place['thousands']] + ' ' + 'Thousand')))
 
             #It means that the number after the first one are zeros
             #I will block the next condition(block the flag_hundred)
@@ -236,17 +236,17 @@ class Convert_numbers_english:
         # ====================================================================================================
         #  Hundreds #999
         if self.validates['flag_hundred'] and self.place['hundreds'] != 0:
-            self.joins.append((str(' ' + unit_EN[self.place['hundreds']] + ' ' 'Hundred')))
+            self.joins.append(' ' + (str(' ' + unit_EN[self.place['hundreds']] + ' ' 'Hundred')))
         # ====================================================================================================
         #  Tens #99
         if ((self.validates['flag_decimal'] or self.validates['flag_one']) and (self.place['tens'] != 0 or self.place['ones'] != 0)):
             
             if self.tens_part <= 19:
-                self.joins.append(str(unit_EN[self.tens_part]))
+                self.joins.append(' ' + str(unit_EN[self.tens_part]))
             elif self.tens_part >= 20:
                 #Go check the positions when the Tens Part is bigger than Twenty, you can see into the file Locate.py --> unit_EN
                 #Specifc for this condition that formula is diferent from function calles (find_position_in_place)
-                self.joins.append(str('{} {}'.format(unit_EN[(self.tens_part - (9 * (self.place['tens'] - 2))) - self.place['ones']], unit_EN[self.place['ones']] if self.place['ones'] != 0 else '')))
+                self.joins.append(' ' + str('{} {}'.format(unit_EN[(self.tens_part - (9 * (self.place['tens'] - 2))) - self.place['ones']], unit_EN[self.place['ones']] if self.place['ones'] != 0 else '')))
 
     #===================================================================================
     ########################        End Main Functions       ###########################
@@ -262,7 +262,13 @@ class Convert_numbers_english:
         return self._decimal
     
     def number_in_word(self):
-        return self.joins
+        number = ''
+        for w in self.joins:
+            number = number + w + ','
+        index_ = number.rfind(',')#last position found
+        number = number[0:index_]
+        return number
+        # return self.joins
     
     def even_or_odd(self):
         result = int(self.number_typed) % 2

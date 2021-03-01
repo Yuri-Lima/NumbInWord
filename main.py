@@ -5,18 +5,17 @@
 # # Goals: The main ideia this project is in the future i will create a API.
 # # This API will help developments find every numbers in words.
 
-from NumbInWord.convertnumbers import Convert_numbers_english
+from convertnumbers import Convert_numbers_english
 #====================================================================================================
 
 number_typed = list()
 
 print('Please give me a number (Max = 13 Decimal Places):')
 
-number_typed = '1'
+number_typed = '101101'
 
 word = Convert_numbers_english(number_typed)
 word.start_convertion()
 
 print(word.number_in_word())
 print(word.even_or_odd())
-
