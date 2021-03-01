@@ -6,7 +6,7 @@ GitHub: https://github.com/Yuri-Lima
 Goals: The main ideia this project is in the future i will create a API.
 This API will help developments find every numbers in words.
 """
-from Locate import unit_EN
+from NumbInWord.Locate import unit_EN
 #====================================================================================================
 num = list()
 locate = list()

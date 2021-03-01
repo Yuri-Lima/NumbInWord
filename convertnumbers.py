@@ -1,5 +1,5 @@
 import re
-from Locate import unit_EN
+from NumbInWord.Locate import unit_EN
 
 
 class Convert_numbers_english:
