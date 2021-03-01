@@ -5,7 +5,7 @@
 # # Goals: The main ideia this project is in the future i will create a API.
 # # This API will help developments find every numbers in words.
 
-from convertnumbers import Convert_numbers_english
+from NumbInWord.convertnumbers import Convert_numbers_english
 #====================================================================================================
 
 number_typed = list()
