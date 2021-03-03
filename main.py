@@ -15,10 +15,14 @@ number_typed = '1021010105010101'#'101101'
 
 word = Convert_numbers_english(number_typed)
 word.start_convertion()
+txt = word.str_number_in_word()
+print('<' + '-'*len(txt) + '>')
 
-print(f'String: {word.str_number_in_word()}')
-# print(f'List: {word.list_number_in_word()}')
-# print(f'Even or Odd: {word.even_or_odd()}')
-print(f'Decimal Places: {word.how_many_decimal_places()}')
-print(f'Places: {word.place_decimal()}')
-print(f'After First position check if are only zeros: {word.bool_check_zeros()}')
+print(f'String: {txt}\n')
+# print(f'List: {word.list_number_in_word()}\n')
+# print(f'Even or Odd: {word.even_or_odd()}\n')
+print(f'Decimal Places: {word.how_many_decimal_places()}\n')
+print(f'Places Filled: \n{word.place_decimal()}\n')
+print(f'After First position check if are only zeros: {word.bool_check_zeros()}\n')
+
+print('<' + '-'*len(txt) + '>')
