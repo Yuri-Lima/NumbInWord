@@ -249,7 +249,7 @@ class Convert_numbers_english:
         return self._decimal
     
     def str_number_in_word(self):
-        joins = ', '.join(self.joins) 
+        joins = ', '.join(self.joins)
         return joins
 
     def list_number_in_word(self):
@@ -260,7 +260,7 @@ class Convert_numbers_english:
         return 'Even' if result == 0 else 'Odd'
     
     def bool_check_zeros(self):
-        return self._check_zero
+        return not self._check_zero
     
     def place_decimal(self):
         return self.place
