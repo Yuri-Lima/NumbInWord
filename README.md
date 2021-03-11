@@ -6,7 +6,7 @@
 - 📫 How to reach me: +353 083 419 1605 (Dublin/Irlanda)
 - 😄 Pronouns: Power of will
 
-> ### My first prject in python:
+> ### My first project in python:
 1. **Translate number in word**:
   Goals: The main ideia this project is in the future i will create a API.
 1. Link to WebAplication: https://www.yurilima.com.br/yurilima/numberinword/
